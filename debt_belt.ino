@@ -1,5 +1,5 @@
 #include <Stepper.h>
-const int interval = 10000;
+const int interval = 31500;
 const int stepsTightened = 100;  // change this to fit the number of steps per revolution
 #define isTightening false;
 #define startPin
@@ -22,8 +22,9 @@ void loop() {
   // press 'end' button
   // if (!isTightening) do nothing
    // set the speed at 20 rpm:
-  Serial.println("clockwise");
   myStepper.step(-stepsTightened);
+  delay(500);
+  myStepper.step(stepsTightened);
   delay(interval);
 
 }
